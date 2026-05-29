@@ -1,0 +1,12 @@
+# Foundry build + cache
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+# Soldeer-installed deps (restore with `forge soldeer install`)
+contracts/dependencies/
+# Node
+**/node_modules/
+# Secrets - never commit
+.env
+.env.local
+*.key

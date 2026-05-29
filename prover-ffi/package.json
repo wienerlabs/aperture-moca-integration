@@ -1,0 +1,16 @@
+{
+  "name": "aperture-moca-prover-ffi",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Real Groth16 proof generator used by Foundry FFI tests and by the Moca release client. Wraps the unchanged payment.circom artifacts (wasm + zkey).",
+  "main": "prover.mjs",
+  "exports": {
+    ".": "./prover.mjs",
+    "./cli": "./prove.mjs"
+  },
+  "dependencies": {
+    "circomlibjs": "^0.1.7",
+    "snarkjs": "^0.7.5"
+  }
+}

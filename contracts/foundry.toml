@@ -1,0 +1,25 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["dependencies"]
+test = "test"
+script = "script"
+solc = "0.8.28"
+optimizer = true
+optimizer_runs = 200
+# releaseWithProof binds 10 public signals plus proof points in one frame;
+# the IR pipeline resolves the stack-too-deep that the legacy codegen hits.
+via_ir = true
+# Moca Chain testnet is Evmos-based with the London opcode set, which includes
+# the bn128 pairing precompiles (EIP-196/197) the Groth16 verifier relies on.
+# Pin the EVM version to london so bytecode never emits opcodes the chain rejects.
+evm_version = "london"
+ffi = true
+fs_permissions = [{ access = "read", path = "./" }]
+
+[soldeer]
+remappings_generate = false
+
+[dependencies]
+forge-std = "1.9.7"
+"@openzeppelin-contracts" = "5.1.0"

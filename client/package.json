@@ -1,0 +1,23 @@
+{
+  "name": "@aperture/moca-client",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "viem TypeScript client for the Aperture-on-Moca contracts: operator/policy management, escrow lock/refund, and ZK-gated release backed by real Groth16 proofs.",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "pay": "tsx examples/pay.ts",
+    "resolve": "tsx examples/resolve-did.ts",
+    "pay-gasless": "tsx examples/pay-gasless.ts"
+  },
+  "dependencies": {
+    "aperture-moca-prover-ffi": "file:../prover-ffi",
+    "dotenv": "^16.4.5",
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

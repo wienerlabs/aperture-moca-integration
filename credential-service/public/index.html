@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aperture on Moca - AIR Kit Credential</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 50rem; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
+      h1 { font-size: 1.4rem; }
+      label { display: block; font-size: .85rem; margin: .8rem 0 .2rem; color: #444; }
+      input { width: 100%; padding: .5rem; border: 1px solid #ccc; border-radius: .4rem; font-size: .9rem; box-sizing: border-box; }
+      .row { display: flex; gap: .6rem; margin: 1.2rem 0; flex-wrap: wrap; }
+      button { padding: .6rem 1rem; border: 0; border-radius: .4rem; background: #2c2cff; color: #fff; font-size: .9rem; cursor: pointer; }
+      button:hover { background: #1a1adb; }
+      pre { background: #0f1020; color: #d7e0ff; padding: 1rem; border-radius: .5rem; height: 22rem; overflow: auto; font-size: .8rem; white-space: pre-wrap; word-break: break-word; }
+      .hint { font-size: .8rem; color: #666; }
+    </style>
+  </head>
+  <body>
+    <h1>Aperture on Moca - Verified Agent credential</h1>
+    <p class="hint">
+      Logs in with an AIR Account, issues an "Aperture Verified Agent" credential
+      whose data comes from real on-chain ComplianceEscrow activity, then ZK-verifies it.
+    </p>
+
+    <label for="email">AIR Account email</label>
+    <input id="email" type="email" placeholder="you@example.com" />
+
+    <label for="operator">Operator address (source of on-chain compliance data)</label>
+    <input id="operator" type="text" value="0xF63CCda7f67B1a2b1F767705d61b2146563479EC" />
+
+    <label for="partnerId">Partner ID (auto-loaded)</label>
+    <input id="partnerId" type="text" readonly />
+
+    <div class="row">
+      <button id="btnLogin">1. Login with AIR Account</button>
+      <button id="btnIssue">2. Issue credential</button>
+      <button id="btnVerify">3. Verify credential</button>
+    </div>
+
+    <pre id="log"></pre>
+    <script type="module" src="/bundle.js"></script>
+  </body>
+</html>

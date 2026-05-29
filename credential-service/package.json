@@ -1,0 +1,24 @@
+{
+  "name": "@aperture/moca-credential-service",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "AIR Kit credential service for Aperture on Moca: hosts the public JWKS, signs Partner JWTs, and issues 'Aperture Verified Agent' credentials on-behalf via the Moca sandbox API using real on-chain compliance data.",
+  "scripts": {
+    "gen-keys": "node scripts/gen-keys.mjs",
+    "serve": "node src/server.mjs",
+    "issue": "node bin/issue-cli.mjs",
+    "build:web": "esbuild web/main.js --bundle --format=esm --platform=browser --define:process.env.NODE_ENV='\"production\"' --define:global=window --outfile=public/bundle.js",
+    "catalog": "node bin/catalog-cli.mjs"
+  },
+  "dependencies": {
+    "@mocanetwork/airkit": "1.9.0-beta.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "jose": "^5.9.6",
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}
