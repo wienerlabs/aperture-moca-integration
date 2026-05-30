@@ -28,12 +28,7 @@ fully implemented against Moca's sandbox APIs, but the end-to-end issue/verify
 round-trip is pending Moca's credential service, which currently returns HTTP
 503 (see EVIDENCE.md).
 
-Honest boundary: by design, AIR Kit credential verification is client-side and
-settles on Moca Chain, and the contract enforcement also runs on Moca Chain, so
-the link between credential and enforcement is native to Moca Chain rather than a
-cross-chain bridge. The contract enforcement (Faz 3-5) is live; the credential
-verification half (Faz 2) is implemented but not yet exercised end to end because
-Moca's credential service is down (503).
+Honest boundary: Each payment is gated on-chain by a Groth16 proof (Faz 3-5, live and fully exercised). The AIR Kit credential (Faz 2) does not gate payments; instead its compliantPaymentCount and reputationScore are derived from the operator's on-chain ZK-gated payment history read from ComplianceEscrow. That credential layer is implemented but not exercised end to end, because Moca's sandbox credential service is currently down (503), so the issue/verify round-trip is not yet demonstrated.
 
 ## Layout
 
