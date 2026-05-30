@@ -103,6 +103,26 @@ a browser app (`web/`, bundled to `public/`) that logs in with an AIR Account
 on-chain data: the operator's ZK-gated payment count read from
 `ComplianceEscrow` drives `compliantPaymentCount` and `reputationScore`.
 
+### Credential schema (Aperture Verified Agent)
+
+Created in the AIR Kit dashboard (schema id `01KSTQK70XGFBT558HRHFB`, type
+`ApertureVerifiedAgent`). The credentialSubject fields, populated from on-chain
+data:
+
+| Field | Type | Source |
+|-------|------|--------|
+| agentId | string | agent identifier |
+| operatorAddress | string | operator wallet address |
+| complianceStatus | string | "compliant" when the operator has ZK-gated releases |
+| compliantPaymentCount | number | ComplianceEscrow.operatorState.totalReleases |
+| reputationScore | number | derived from compliantPaymentCount |
+| verifiedAt | string | timestamp of the credential build |
+| id | string | credential subject DID |
+
+The schema is registered in the dashboard but not published to the public
+catalog (the catalog API returns "Schema not found" for its id), which is
+expected.
+
 Status, verified directly:
 
 - Faz 1 login works. A real AIR Account smart wallet
